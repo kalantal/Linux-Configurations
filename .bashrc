@@ -1,15 +1,5 @@
 # .bashrc
 
-# User specific aliases and functions
-
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
-export M2_HOME=/usr/bin/apache-maven-3.0.5
-export M2=$M2_HOME/bin
-export PATH=$M2:$PATH
-
 RCol='\[\e[0m\]'    # Text Reset
 Red='\[\e[0;31m\]'  # Red
 Gre='\[\e[0;32m\]'  # Green
