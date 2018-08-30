@@ -21,10 +21,10 @@ Whi='\[\e[0;37m\]'  # White
 
 LOCAL_IP=`/bin/hostname -I | sed 's/ //g'`
 
-#Kali-Like
+#Kali
 #PS1="${Red}\u@$LOCAL_IP${Whi}:${Blu}/\W${RCol}\\$"
 #RHEL
-PS1="${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
