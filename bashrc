@@ -12,10 +12,11 @@ Pur='\[\e[0;35m\]'  # Purple
 Cya='\[\e[0;36m\]'  # Cyan
 Whi='\[\e[0;37m\]'  # White
 
+#Kali-IP-fix
 #LOCAL_IP=`/bin/hostname -I | sed 's/ //g'`
 LOCAL_IP=`/bin/hostname --ip-address`
 
-#Kali
+#Kali-like
 #PS1="${Red}\u@$LOCAL_IP${Whi}:${Blu}/\W${RCol}\\$"
 #RHEL
 PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
