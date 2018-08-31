@@ -19,7 +19,16 @@ LOCAL_IP=`/bin/hostname --ip-address`
 #Kali-like
 #PS1="${Red}\u@$LOCAL_IP${Whi}:${Blu}/\W${RCol}\\$"
 #RHEL
-PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+#PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+
+case $TERM in
+    xterm*)
+        PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+        ;;
+    *)
+        PS1="${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+        ;;
+esac
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
