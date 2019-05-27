@@ -13,22 +13,24 @@ Cya='\[\e[0;36m\]'  # Cyan
 Whi='\[\e[0;37m\]'  # White
 
 #Kali-IP-fix
-#LOCAL_IP=`/bin/hostname -I | sed 's/ //g'`
-LOCAL_IP=`/bin/hostname --ip-address`
+LOCAL_IP=`/bin/hostname -I | sed 's/ //g'`
+#LOCAL_IP=`/bin/hostname --ip-address`
+#LOCAL_IP=`/bin/hostname -I`
 
 #Kali-like
 #PS1="${Red}\u@$LOCAL_IP${Whi}:${Blu}/\W${RCol}\\$"
 #RHEL
 #PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;27m\]@\[$(tput sgr0)\]\[\033[38;5;15m\]\$LOCAL_IP:\\$\[$(tput sgr0)\] "
 
-case $TERM in
-    xterm*)
-        PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
-        ;;
-    *)
-        PS1="${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
-        ;;
-esac
+#case $TERM in
+#    xterm*)
+#        PS1="\[\033]0;${USER}@\h\007\]${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+#        ;;
+#    *)
+#        PS1="${Red}\u${Blu}@${Whi}$LOCAL_IP[\W]:\\$ "
+#        ;;
+#esac
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
