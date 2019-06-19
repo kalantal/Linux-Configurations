@@ -9,3 +9,114 @@ cat /tmp/og-objects.txt | while read line ; do s3cmd rb --recursive --force $lin
 
 #Delete specific files in s3://og-1.8.6
 do s3cmd rb --recursive --force s3://og-1.8.6/foo
+
+root
+toor
+
+ifconfig
+ifdown ens33
+ifup ens33
+
+subscription-manager register
+jr09824
+[ass
+
+subscription-manager attach
+yum update -y
+
+yum groupinstall "Development tools" -y
+
+git clone https:/github.com/ceph/s3-tests
+cd s3-tests
+git checkout b3d9487f14ca1b3725ef9f5aa1570fa871f4f910
+
+virtualenv/bin/pip download nose-blacklist -d dependencies/pip
+virtualenv/bin/pip install nose-blacklist --find-links dependencies/pip
+
+yum install --downloadonly --downloaddir=./ python-virtualenv
+virtualenv/bin/pip install nose-picker -d dependencies/pip
+virtualenv/bin/pip install virtualenv -d dependencies/pip
+./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
+
+yum install dependencies/rpms/*
+virtualenv --no-site-packages --distribute virtualenv
+./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
+./virtualenv/bin/python setup.py develop
+
+tar -xzvf libevent-1.4.14b-stable.tar.gz
+cd libevent-1.4.14b-stable
+./configure
+make
+sudo make install
+
+sudo lsof -i -P -n | grep LISTEN
+netstat -tulpn | grep LISTEN
+lsof -i
+nmap -sT -O localhost
+sudo netstat -tulpn | grep LISTEN
+sudo ss -tulpn
+
+git clone https://github.com/kalantal/WiFi-Pumpkin
+cd WiFi-Pumpkin/
+git remote add upstream git://github.com/P0cL4bs/WiFi-Pumpkin.git
+git fetch upstream
+git pull upstream master
+git pull
+git add --all
+git commit -m "merge from master"
+git push
+
+git clone https:/github.com/ceph/s3-tests
+cd s3-tests
+git checkout 5f4f0ad7af906bd08b596fd8fab503acfbb95929
+
+Git Recovery
+git checkout master
+git checkout 5f4f0ad7af906bd08b596fd8fab503acfbb95929 .
+git add --all
+git push -u origin master
+git add --all
+git commit -m "recovery"
+git push
+
+untrack file for gitignore
+git rm --cached mylogfile.log
+git rm --cached -r mydirectory
+
+Clean gitignore
+git rm -r --cached .
+git add .
+git commit -m ".gitignore"
+
+Configure Git for the first time
+git config --global user.name "Justin J Restivo"
+git config --global user.email "justin.restivo@citi.com"
+
+git clone ssh://git@cedt-bitbucketcli.nam.nsroot.net:7999/ds/deletethisthanks.git
+
+cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin ssh://git@cedt-bitbucketcli.nam.nsroot.net:7999/ds/deletethisthanks.git
+git push -u origin master
+ 
+SSL Cert error
+git config --global http.sslVerify false
+ 
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+ssh-keygen -t rsa -C "justin.restivo@citi.com"
+
+First, turn off the Network card using command:
+
+ip link set dev ens33 down
+Next, set the new MAC is using command:
+
+ip link set dev ens33 address XX:XX:XX:XX:XX:XX
+Finally, turn it on back with command:
+
+ip link set dev ens33 up
+Now, verify new MAC id using command:
+
+ip link show ens33
