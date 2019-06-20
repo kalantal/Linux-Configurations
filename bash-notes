@@ -12,6 +12,12 @@ do s3cmd rb --recursive --force s3://og-1.8.6/foo
 
 sudo chown -R jr09824:jr09824 /home/jr09824/s3-tests/
 
+run in background 
+noshup ./run_all.sh & 
+
+ps aux | grep "run_all.sh"
+pkill -9 -f run_all.sh
+
 root
 toor
 
@@ -21,7 +27,7 @@ ifup ens33
 
 subscription-manager register
 jr09824
-[ass
+Gpass
 
 subscription-manager attach
 yum update -y
