@@ -14,6 +14,7 @@ sudo chown -R jr09824:jr09824 /home/jr09824/s3-tests/
 
 run in background 
 noshup ./run_all.sh > /tmp/nohup.out & 
+nohup ./scripts/s3deletebuckets_1pass.sh 2> /tmp/nohup.out &
 
 tail -f /tmp/nohup.out
 
