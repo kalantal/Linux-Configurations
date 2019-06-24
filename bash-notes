@@ -21,6 +21,14 @@ tail -f /tmp/nohup.out
 ps aux | grep "run_all.sh"
 pkill -9 -f run_all.sh
 
+if [ ! -f s3.conf ]; then
+	echo "no s3.conf found, see README.MD, exiting" && exit 0
+fi
+
+if [ ! -f boto.ini ]; then
+	echo "no boto.ini found, see README.MD, exiting" && exit 0
+fi
+
 root
 toor
 
