@@ -29,6 +29,10 @@ if [ ! -f boto.ini ]; then
 	echo "no boto.ini found, see README.MD, exiting" && exit 0
 fi
 
+remove spaces
+grep -m 1 "access_key" s3.conf | sed 's/ //g'
+access_key=111111111111
+
 root
 toor
 
