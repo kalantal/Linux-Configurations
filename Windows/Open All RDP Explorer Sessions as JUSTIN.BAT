@@ -1,0 +1,17 @@
+explorer.exe \\jdcrd01\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd02\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd04\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd11\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd12\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd13\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd14\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd15\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd16\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd17\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd18\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd19\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd20\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd21\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd22\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd23\c$\Users\jrestivo\Desktop
+explorer.exe \\jdcrd24\c$\Users\jrestivo\Desktop

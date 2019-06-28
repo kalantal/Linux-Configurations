@@ -1,0 +1,1 @@
+C:\Windows\System32\netdom.exe join %computername% /domain:jdcweb.com /userd:basicadmin /passwordd:foobar

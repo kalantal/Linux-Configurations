@@ -1,0 +1,18 @@
+set PythonDIR=C:\Python27
+set PATH=%PythonDIR%;%PythonDIR%\Scripts;%PATH%
+set PYTHONPATH=%PythonDIR%\Lib;%PythonDIR%\Lib\site-packages;%PythonDIR%\DLLs;
+set PATHEXT=%PATHEXT%;.PY;.PYW
+assoc .py=Python.File>NUL
+assoc .pyw=PythonW.File>NUL
+ftype Python.File="%PythonDIR%\python.exe" %%1 %%*>NUL
+ftype PythonW.File="%PythonDIR%\pythonw.exe" %%1 %%*>NUL
+
+python -m pip install fix-yahoo-finance
+python -m pip install pandas-datareder
+
+python
+
+import fix_yahoo_finance as yf
+data = yf.download("SPY", start="2017-01-01", end="2017-04-30")
+
+print data

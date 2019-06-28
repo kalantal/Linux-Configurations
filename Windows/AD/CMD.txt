@@ -1,0 +1,191 @@
+#Net Stat list of currently open ports and related IP addresses
+netstat -an
+
+#Driver Query
+driverquery -v
+
+#file compare
+fc /l "C:\Program Files (x86)\example1.doc" "C:\Program Files (x86)\example2.doc"
+
+#Path Ping
+pathping 192.168.1.1
+
+#get powershell version
+$psversiontable
+
+#TaskList
+TaskList
+Taskkill
+
+#Save Output
+systeminfo > C:\Users\jrestivo\Documents\mycomputerinfo.txt
+
+#View Directory Contents
+tree /a > C:\Users\jrestivo\Documents\treeresults.txt
+
+#Title CMD Prompt
+Title HELLO WORLD
+
+#RoboCopy
+C:\Users\jrestivo>robocopy c:\users\jrestivo\documents \\jdcfs01\networkadmin$\justin\backup /mir
+
+#IpConfig
+ipconfig /all
+
+#Map Network Location
+net use O: \\JDCFS01\Clinics /P:Yes
+net use O: /Delete
+net use O: \\JDCFS01\Clinics /user Justin Password1
+
+#Delete All Network Locations
+net use * /Delete
+
+#XCopy
+if not exist c:\admin\wireless md c:\admin\wireless
+xcopy \\heracles\c$\admin\wireless\* c:\admin\wireless /e /y
+
+#Copy to all user profiles
+copy "\\jdcfs01\networkadmin$\Shortcuts\Dentrix\Dentrix Production.rdp" %AllUsersProfile%\Desktop
+\\jdcrd01\c$\admin\copytoall.cmd \\jdcrd01\c$\admin\StartMenu\FastAttach.lnk
+
+#Replace test file and user name using CTRL+H and replacing all with file you'd like to use
+echo F| XCOPY C:\Users\jrestivo\Desktop\Open.vbs \\jdcrd01\c$\Users\jrestivo\Desktop\Open.vbs
+
+#Remote Deletion
+del \\jdcrd24\c$\Users\jrestivo\Desktop\Open.vbs
+
+#Join Domain
+C:\Windows\System32\netdom.exe join %computername% /domain:jdcweb.com /userd:basicadmin /passwordd:$erverAdmin
+
+#Ping Tool
+@echo off
+setlocal
+cls
+echo.
+echo Remote Desktops
+call :PingVerbose jdcrd01
+
+pause>nul
+endlocal
+exit /b 0
+
+:Ping <Address>
+ping "%~1" -n 1 >nul
+exit /b %ErrorLevel%
+
+:PingVerbose <Address>
+call :Ping %1 && echo    %~1 is Online || echo %~1 Offline
+exit /b %ErrorLevel%
+
+#Line break in CMD
+.echo
+
+#Grant File Permissions
+icacls c:\iaplus /grant:r Everyone:F /inheritance:r /t /q
+
+#Self Elevating BAT
+@echo off
+
+:: BatchGotAdmin
+:-------------------------------------
+REM  --> Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+
+REM --> If error flag set, we do not have admin.
+if '%errorlevel%' NEQ '0' (
+    echo Requesting administrative privileges...
+    goto UACPrompt
+) else ( goto gotAdmin )
+
+:UACPrompt
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    exit /B
+
+:gotAdmin
+    if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+    pushd "%CD%"
+    CD /D "%~dp0"
+:--------------------------------------
+
+call bomgar-scc-w0idc305iy717ezy7e7ihjjjy6ezxfe7xx1w1wgc40jc90.exe
+
+#Visual Basic - Open registry to location
+Set WshShell = CreateObject("WScript.Shell")
+WshShell.RegWrite "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit\Lastkey","HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Medicor Imaging\MiPACS Dental Enterprise Viewer 3\DELink","REG_SZ"
+WshShell.Run "regedit", 1,True
+Set WshShell = Nothing
+
+#Open Remote Explorer Session
+explorer.exe \\jdcrd01\c$\Users\jrestivo\Desktop
+
+#Wireless Profiles
+netsh wlan export profile name=JDC-Corporate key=clear
+netsh wlan export profile name=JDC-Private key=clear
+
+if not exist c:\admin\wireless md c:\admin\wireless
+xcopy \\heracles\c$\admin\wireless\* c:\admin\wireless /e /y
+
+netsh wlan add profile filename="C:\admin\wireless\JDC-Corporate.xml"
+netsh wlan add profile filename="C:\admin\wireless\JDC-Private.xml"
+
+netsh wlan set profile order name="JDC-Corporate" priority=1
+netsh wlan set profile order name="JDC-Private" priority=2
+
+#Install From Print Server
+start \\atlas\00HQ_HP_400_PCC
+
+#Set Local Admin
+net localgroup administrators USERNAME /add
+
+#IP Address Lookup
+nslookup google.com
+
+#Ping
+ping google.com -t
+
+#Remot Shutdown
+shutdown -m \\server -r -f -c "hi" -t 0
+
+#Powershell
+#Login
+Import-Module MSOnline
+$LiveCred = Get-Credential
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell/ -Credential $LiveCred -Authentication Basic -AllowRedirection
+Import-PSSession $Session
+Connect-MsolService –credential $LiveCred
+
+#Import DirSync
+import-Module DirSync
+
+#Syncs with outlook.office365.com
+Start-OnlineCoexistenceSync
+
+#Sets e-mail user password
+Set-MsolUserPassword -UserPrincipalName jrestivo@jdcweb.com -NewPassword Healthcare1 -ForceChangePassword $False
+
+#Changes e-mail username
+Set-MsolUserPrincipalName -UserPrincipalName thomas.louis@jdcpllc.com -NewUserPrincipalName thomas.loius@jdcpllc.com
+
+
+#Sets Windows Size
+Function Set-WindowSize {
+Param([int]$x=$host.ui.rawui.windowsize.width,
+      [int]$y=$host.ui.rawui.windowsize.heigth)
+
+    $size=New-Object System.Management.Automation.Host.Size($x,$y)
+    $host.ui.rawui.WindowSize=$size   
+}
+
+Set-WindowSize 70 70
+
+# Change line color
+-ForegroundColor Green
+
+#Write to window
+Write-Host "HELLO WORLD"
+
+#Unlock AD Account
+Unlock-ADAccount -Identity zduffey

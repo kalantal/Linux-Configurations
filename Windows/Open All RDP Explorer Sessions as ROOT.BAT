@@ -1,0 +1,17 @@
+explorer.exe \\jdcrd01\c$
+explorer.exe \\jdcrd02\c$
+explorer.exe \\jdcrd04\c$
+explorer.exe \\jdcrd11\c$
+explorer.exe \\jdcrd12\c$
+explorer.exe \\jdcrd13\c$
+explorer.exe \\jdcrd14\c$
+explorer.exe \\jdcrd15\c$
+explorer.exe \\jdcrd16\c$
+explorer.exe \\jdcrd17\c$
+explorer.exe \\jdcrd18\c$
+explorer.exe \\jdcrd19\c$
+explorer.exe \\jdcrd20\c$
+explorer.exe \\jdcrd21\c$
+explorer.exe \\jdcrd22\c$
+explorer.exe \\jdcrd23\c$
+explorer.exe \\jdcrd24\c$

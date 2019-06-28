@@ -1,0 +1,12 @@
+First, turn off the Network card using command:
+
+ip link set dev ens33 down
+Next, set the new MAC is using command:
+
+ip link set dev ens33 address XX:XX:XX:XX:XX:XX
+Finally, turn it on back with command:
+
+ip link set dev ens33 up
+Now, verify new MAC id using command:
+
+ip link show ens33

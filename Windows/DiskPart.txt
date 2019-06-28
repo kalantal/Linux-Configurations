@@ -1,0 +1,23 @@
+Preparing the USB drive:
+
+Open command prompt as administrator - Right click on Start > All Programs > Accessories > Command Prompt and select Run as administrator or type cmd in the Start search bar.
+Run diskpart utility by typing diskpart into command prompt window and pressing “Enter”.
+Locate your USB drive disk number by executing list disk. We'll assume the USB drive is 1.
+Run the following commands:
+select disk 1
+clean
+create partition primary
+select partition 1
+active
+format fs=NTFS
+assign
+exit
+
+Now we have prepared USB drive. Lets make it bootable:
+
+Insert Windows 7, 32/64-bit installation disk into DVD drive. Let's assume it's D
+Go to D:\boot (cd d:\boot)
+If your USB drive letter is “e” please run bootsect /nt60 e:
+Copy DVD Windows 7 media content to USB root folder (etc. don't put it into any folder)
+
+You are now ready to install Windows 7 from USB flash drive!

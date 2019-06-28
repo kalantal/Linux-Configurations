@@ -1,0 +1,17 @@
+mstsc.exe /admin /v:jdcrd01
+mstsc.exe /admin /v:jdcrd02
+mstsc.exe /admin /v:jdcrd04
+mstsc.exe /admin /v:jdcrd11
+mstsc.exe /admin /v:jdcrd12
+mstsc.exe /admin /v:jdcrd13
+mstsc.exe /admin /v:jdcrd14
+mstsc.exe /admin /v:jdcrd15
+mstsc.exe /admin /v:jdcrd16
+mstsc.exe /admin /v:jdcrd17
+mstsc.exe /admin /v:jdcrd18
+mstsc.exe /admin /v:jdcrd19
+mstsc.exe /admin /v:jdcrd20
+mstsc.exe /admin /v:jdcrd21
+mstsc.exe /admin /v:jdcrd22
+mstsc.exe /admin /v:jdcrd23
+mstsc.exe /admin /v:jdcrd24

@@ -1,0 +1,51 @@
+git clone https://github.com/kalantal/WiFi-Pumpkin
+cd WiFi-Pumpkin/
+git remote add upstream git://github.com/P0cL4bs/WiFi-Pumpkin.git
+git fetch upstream
+git pull upstream master
+git pull
+git add --all
+git commit -m "merge from master"
+git push
+
+git clone https:/github.com/ceph/s3-tests
+cd s3-tests
+git checkout 5f4f0ad7af906bd08b596fd8fab503acfbb95929
+
+Git Recovery
+git checkout master
+git checkout 5f4f0ad7af906bd08b596fd8fab503acfbb95929 .
+git add --all
+git push -u origin master
+git add --all
+git commit -m "recovery"
+git push
+
+untrack file for gitignore
+git rm --cached mylogfile.log
+git rm --cached -r mydirectory
+
+Clean gitignore
+git rm -r --cached .
+git add .
+git commit -m ".gitignore"
+
+Configure Git for the first time
+git config --global user.name "Justin J Restivo"
+git config --global user.email "justin.restivo@citi.com"
+
+git clone ssh://git@cedt-bitbucketcli.nam.nsroot.net:7999/ds/deletethisthanks.git
+
+cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin ssh://git@cedt-bitbucketcli.nam.nsroot.net:7999/ds/deletethisthanks.git
+git push -u origin master
+ 
+SSL Cert error
+git config --global http.sslVerify false
+ 
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+ssh-keygen -t rsa -C "justin.restivo@citi.com"
