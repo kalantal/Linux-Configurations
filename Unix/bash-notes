@@ -12,9 +12,11 @@ do s3cmd rb --recursive --force s3://og-1.8.6/foo
 
 sudo chown -R jr09824:jr09824 /home/jr09824/s3-tests/
 
-nohup ./run_all.sh >/tmp/nohup.out 2>&1 &
+nohup ./run_all.sh > /tmp/nohup.out 2>&1 </dev/null &
 tail -f /tmp/nohup.out
 
+ps aux | grep run_all
+ps aux | grep s3
 pkill -f run_all.sh
 
 run in background 
