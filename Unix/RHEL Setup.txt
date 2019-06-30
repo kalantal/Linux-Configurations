@@ -1,5 +1,3 @@
-root
-toor
 
 ifconfig
 ifdown ens33
@@ -10,32 +8,36 @@ jr09824
 G?
 
 subscription-manager attach
-yum update -y
+yum upgrade -y
+
+yum install git
+
+cd /tmp
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ls *.rpm
+yum install epel-release-latest-7.noarch.rpm
+yum update
+
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
+./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+------------------------------
+
+yum install python-pip --downloadonly --downloaddir=./
+pip download nose-blacklist -d dependencies/pip
+pip install nose-blacklist --find-links dependencies/pip
+pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
 
 yum groupinstall "Development tools" -y
+yum install dependencies/rpms/*
 
-git clone https:/github.com/ceph/s3-tests
+git clone https://github.com/ceph/s3-tests
 cd s3-tests
 git checkout b3d9487f14ca1b3725ef9f5aa1570fa871f4f910
-
-virtualenv/bin/pip download nose-blacklist -d dependencies/pip
-virtualenv/bin/pip install nose-blacklist --find-links dependencies/pip
-
-yum install --downloadonly --downloaddir=./ python-virtualenv
-virtualenv/bin/pip install nose-picker -d dependencies/pip
-virtualenv/bin/pip install virtualenv -d dependencies/pip
-./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
-
-yum install dependencies/rpms/*
-virtualenv --no-site-packages --distribute virtualenv
-./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
-./virtualenv/bin/python setup.py develop
 
 tar -xzvf libevent-1.4.14b-stable.tar.gz
 cd libevent-1.4.14b-stable
 ./configure
 make
 sudo make install
-
-pip download awscli -d dependencies/pip
-./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" awscli
