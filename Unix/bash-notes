@@ -40,8 +40,10 @@ remove spaces
 grep -m 1 "access_key" s3.conf | sed 's/ //g'
 access_key=111111111111
 
-root
-toor
+#Remove ^M endings
+#sed -i "s/\r//g" ~/.s3cfg
+#sed -i "s/\r//g" credentials
+#sed -i "s/\r//g" cleanupKeys
 
 ifconfig
 ifdown ens33

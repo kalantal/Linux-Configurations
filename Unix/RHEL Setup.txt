@@ -24,10 +24,13 @@ unzip awscli-bundle.zip
 
 ------------------------------
 
-yum install python-pip --downloadonly --downloaddir=./
-pip download nose-blacklist -d dependencies/pip
+rpm -i perl-XML-Simple-2.20-5.el7.noarch.rpm --nodeps
+yum install python-pip python-virtualenv python-dev libevent-dev libffi-dev libxml2-dev libxslt-dev zlib1g-dev --downloadonly --downloaddir=../rpms
+pip download nose-blacklist -d ../pip
 pip install nose-blacklist --find-links dependencies/pip
 pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
+
+pip download -r ../s3-tests/requirements.txt -d ./
 
 yum groupinstall "Development tools" -y
 yum install dependencies/rpms/*
@@ -41,3 +44,4 @@ cd libevent-1.4.14b-stable
 ./configure
 make
 sudo make install
+
