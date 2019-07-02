@@ -1,1 +1,0 @@
-ifdown ens160 && sleep 10m && ifup ens160
