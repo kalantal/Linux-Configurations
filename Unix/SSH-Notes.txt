@@ -4,3 +4,6 @@ sudo vi /etc/ssh/sshd_config
 PermitRootLogin yes
 service ssh stop
 service ssh start
+
+#AWS Login
+ssh --identity-key-file=JustinCephKey.pem ec2-user@10.40.137.134
