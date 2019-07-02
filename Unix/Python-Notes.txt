@@ -1,0 +1,3 @@
+ls -l /usr/bin/python
+ln -snf python2.7 /usr/bin/python
+ln -s ../local/python/bin/python3.6 /usr/bin/python3
