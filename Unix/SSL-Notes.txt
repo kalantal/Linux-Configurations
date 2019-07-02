@@ -1,0 +1,55 @@
+Encodings (also used as extensions)
+
+.DER = The DER extension is used for binary DER encoded certificates. These files may also bear the CER or the CRT extension.   Proper English usage would be “I have a DER encoded certificate” not “I have a DER certificate”.
+.PEM = The PEM extension is used for different types of X.509v3 files which contain ASCII (Base64) armored data prefixed with a “—– BEGIN …” line.
+Common Extensions
+.CRT = The CRT extension is used for certificates. The certificates may be encoded as binary DER or as ASCII PEM. The CER and CRT extensions are nearly synonymous.  Most common among *nix systems
+CER = alternate form of .crt (Microsoft Convention) You can use MS to convert .crt to .cer (.both DER encoded .cer, or base64[PEM] encoded .cer)  The .cer file extension is also recognized by IE as a command to run a MS cryptoAPI command (specifically rundll32.exe cryptext.dll,CryptExtOpenCER) which displays a dialogue for importing and/or viewing certificate contents.
+.KEY = The KEY extension is used both for public and private PKCS#8 keys. The keys may be encoded as binary DER or as ASCII PEM.
+The only time CRT and CER can safely be interchanged is when the encoding type can be identical.  (ie  PEM encoded CRT = PEM encoded CER)
+
+Common:
+openssl x509 -inform PEM -in cacert.pem -outform DER -out certificate.cer
+
+Generate a new private key and Certificate Signing Request
+openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key
+Generate a self-signed certificate (see How to Create and Install an Apache Self Signed Certificate for more info)
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt
+Generate a certificate signing request (CSR) for an existing private key
+openssl req -out CSR.csr -key privateKey.key -new
+Generate a certificate signing request based on an existing certificate
+openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key
+Remove a passphrase from a private key
+openssl rsa -in privateKey.pem -out newPrivateKey.pem
+
+Checking Using OpenSSL:
+Check a Certificate Signing Request (CSR)
+openssl req -text -noout -verify -in CSR.csr
+Check a private key
+openssl rsa -in privateKey.key -check
+Check a certificate
+openssl x509 -in certificate.crt -text -noout
+Check a PKCS#12 file (.pfx or .p12)
+openssl pkcs12 -info -in keyStore.p12
+
+Debugging Using OpenSSL:
+Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key
+openssl x509 -noout -modulus -in certificate.crt | openssl md5
+openssl rsa -noout -modulus -in privateKey.key | openssl md5
+openssl req -noout -modulus -in CSR.csr | openssl md5
+Check an SSL connection. All the certificates (including Intermediates) should be displayed
+openssl s_client -connect www.paypal.com:443
+
+Conversions:
+Convert a DER file (.crt .cer .der) to PEM
+openssl x509 -inform der -in certificate.cer -out certificate.pem
+
+Convert a PEM file to DER
+openssl x509 -outform der -in certificate.pem -out certificate.der
+
+Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to PEM
+openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes
+You can add -nocerts to only output the private key or add -nokeys to only output the certificates.
+
+Convert a PEM certificate file and a private key to PKCS#12 (.pfx .p12)
+openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
