@@ -11,6 +11,9 @@ cat /tmp/og-objects.txt | while read line ; do s3cmd rb --recursive --force $lin
 #Linux Permissions
 sudo chown -R jr09824:jr09824 /home/jr09824/s3-tests/
 
+#Delayed Network Kill
+ifdown ens160 && sleep 10m && ifup ens160
+
 #Run script in background 
 noshup ./run_all.sh > /tmp/nohup.out & 
 nohup ./scripts/s3deletebuckets_1pass.sh > /tmp/nohup.out 2> /tmp/nohup.err < /dev/null &
