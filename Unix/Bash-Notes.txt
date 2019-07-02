@@ -1,3 +1,4 @@
+#S3CMD Common Commands
 #List all objects in s3://og-1.8.6
 s3cmd ls s3://og-1.8.6 | awk '{print $4}' 2>&1 | tee -a /tmp/og-objects.txt
 
@@ -7,36 +8,24 @@ sed -i '1,1000d' /tmp/og-objects.txt
 #Remove all objects in s3://og-1.8.6
 cat /tmp/og-objects.txt | while read line ; do s3cmd rb --recursive --force $line ; done
 
-#Delete specific files in s3://og-1.8.6
-do s3cmd rb --recursive --force s3://og-1.8.6/foo
-
+#Linux Permissions
 sudo chown -R jr09824:jr09824 /home/jr09824/s3-tests/
 
-nohup ./run_all.sh > /tmp/nohup.out 2>&1 </dev/null &
-tail -f /tmp/nohup.out
-
-ps aux | grep run_all
-ps aux | grep s3
-pkill -f run_all.sh
-
-run in background 
+#Run script in background 
 noshup ./run_all.sh > /tmp/nohup.out & 
 nohup ./scripts/s3deletebuckets_1pass.sh > /tmp/nohup.out 2> /tmp/nohup.err < /dev/null &
-
 tail -f /tmp/nohup.out
 
+#Find running processes / Kill process
 ps aux | grep "run_all.sh"
 pkill -9 -f run_all.sh
 
+#File not found, then do
 if [ ! -f s3.conf ]; then
 	echo "no s3.conf found, see README.MD, exiting" && exit 0
 fi
 
-if [ ! -f boto.ini ]; then
-	echo "no boto.ini found, see README.MD, exiting" && exit 0
-fi
-
-remove spaces
+#Remove spaces
 grep -m 1 "access_key" s3.conf | sed 's/ //g'
 access_key=111111111111
 
@@ -45,6 +34,7 @@ access_key=111111111111
 #sed -i "s/\r//g" credentials
 #sed -i "s/\r//g" cleanupKeys
 
+#RHEL Setup
 ifconfig
 ifdown ens33
 ifup ens33
@@ -58,29 +48,23 @@ yum update -y
 
 yum groupinstall "Development tools" -y
 
-git clone https:/github.com/ceph/s3-tests
-cd s3-tests
-git checkout b3d9487f14ca1b3725ef9f5aa1570fa871f4f910
-
+#Pip download only / install locally
 virtualenv/bin/pip download nose-blacklist -d dependencies/pip
 virtualenv/bin/pip install nose-blacklist --find-links dependencies/pip
+# -r requirements.txt
 
+#YUM download only / install locally
 yum install --downloadonly --downloaddir=./ python-virtualenv
-virtualenv/bin/pip install nose-picker -d dependencies/pip
-virtualenv/bin/pip install virtualenv -d dependencies/pip
-./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
-
 yum install dependencies/rpms/*
-virtualenv --no-site-packages --distribute virtualenv
-./virtualenv/bin/pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
-./virtualenv/bin/python setup.py develop
 
+#Build from tar
 tar -xzvf libevent-1.4.14b-stable.tar.gz
 cd libevent-1.4.14b-stable
 ./configure
 make
 sudo make install
 
+#Port check
 sudo lsof -i -P -n | grep LISTEN
 netstat -tulpn | grep LISTEN
 lsof -i
@@ -88,67 +72,16 @@ nmap -sT -O localhost
 sudo netstat -tulpn | grep LISTEN
 sudo ss -tulpn
 
-git clone https://github.com/kalantal/WiFi-Pumpkin
-cd WiFi-Pumpkin/
-git remote add upstream git://github.com/P0cL4bs/WiFi-Pumpkin.git
-git fetch upstream
-git pull upstream master
-git pull
-git add --all
-git commit -m "merge from master"
-git push
-
-git clone https:/github.com/ceph/s3-tests
-cd s3-tests
-git checkout 5f4f0ad7af906bd08b596fd8fab503acfbb95929
-
-Git Recovery
-git checkout master
-git checkout 5f4f0ad7af906bd08b596fd8fab503acfbb95929 .
-git add --all
-git push -u origin master
-git add --all
-git commit -m "recovery"
-git push
-
-untrack file for gitignore
-git rm --cached mylogfile.log
-git rm --cached -r mydirectory
-
-Clean gitignore
-git rm -r --cached .
-git add .
-git commit -m ".gitignore"
-
-Configure Git for the first time
-git config --global user.name "Justin J Restivo"
-git config --global user.email "justin.restivo@citi.com"
-
-git clone ssh://git@cedt-bitbucketcli.nam.nsroot.net:7999/ds/deletethisthanks.git
-
-cd existing-project
-git init
-git add --all
-git commit -m "Initial Commit"
-git remote add origin ssh://git@cedt-bitbucketcli.nam.nsroot.net:7999/ds/deletethisthanks.git
-git push -u origin master
- 
-SSL Cert error
-git config --global http.sslVerify false
- 
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-ssh-keygen -t rsa -C "justin.restivo@citi.com"
-
+#Change MAC
 First, turn off the Network card using command:
 
 ip link set dev ens33 down
+
 Next, set the new MAC is using command:
-
 ip link set dev ens33 address XX:XX:XX:XX:XX:XX
+
 Finally, turn it on back with command:
-
 ip link set dev ens33 up
-Now, verify new MAC id using command:
 
+Now, verify new MAC id using command:
 ip link show ens33
