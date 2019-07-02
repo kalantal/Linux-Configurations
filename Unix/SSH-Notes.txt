@@ -1,0 +1,6 @@
+#Enable SSH root@IP
+sudo vi /etc/ssh/sshd_config
+
+PermitRootLogin yes
+service ssh stop
+service ssh start
