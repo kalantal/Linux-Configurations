@@ -1,3 +1,5 @@
+PROXYjr09824:PASS@http://webproxy.ssmb.com:8080
+
 PROXY=http://webproxy.ssmb.com:8080
 export http_proxy=$PROXY
 export HTTP_PROXY=$PROXY
