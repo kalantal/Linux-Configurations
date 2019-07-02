@@ -1,7 +1,8 @@
-GRUB ERROR 22
+#GRUB ERROR 22
 Bootrec.exe /fixmbr
 Bootrec.exe /fixboot
 
+#Boot Issues on BT3
 Fixvesa
 Startx
 root
