@@ -1,0 +1,5 @@
+send to
+scp username@hostname:remotefile localfile
+
+pull from
+scp localfile username@hostname:remotefile
