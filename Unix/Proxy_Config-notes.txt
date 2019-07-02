@@ -1,0 +1,9 @@
+PROXY=http://webproxy.ssmb.com:8080
+export http_proxy=$PROXY
+export HTTP_PROXY=$PROXY
+export https_proxy=$PROXY
+export HTTPS_PROXY=$PROXY
+export ftp_proxy=$PROXY
+export FTP_PROXY=$PROXY
+export sftp_proxy=$PROXY
+export SFTP_PROXY=$PROXY
