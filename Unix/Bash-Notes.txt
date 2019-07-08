@@ -1,3 +1,18 @@
+#RHEL Setup
+
+subscription-manager register
+jr09824
+Gpass
+
+subscription-manager attach
+yum upgrade -y
+
+yum install git
+
+git config --global user.name Justin
+git config --global user.email justinjrestivo@gmail.com
+git config --global push.default matching
+
 #s3cmd Common Commands
 #List all objects in s3://og-1.8.6
 s3cmd ls s3://og-1.8.6 | awk '{print $4}' 2>&1 | tee -a /tmp/og-objects.txt
@@ -58,13 +73,6 @@ access_key=111111111111
 ifconfig
 ifdown ens33
 ifup ens33
-
-subscription-manager register
-jr09824
-Gpass
-
-subscription-manager attach
-yum update -y
 
 yum groupinstall "Development tools" -y
 
