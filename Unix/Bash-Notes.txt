@@ -28,6 +28,14 @@ if [ ! -f s3.conf ]; then
 	echo "no s3.conf found, see README.MD, exiting" && exit 0
 fi
 
+chmod +x *
+chmod 644 *
+
+755 means you can do anything with the file or directory, and other users can read and execute it but not alter it. Suitable for programs and directories you want to make publicly available.
+644 means you can read and write the file or directory and other users can only read it. Suitable for public text files.
+711 means you can do anything with the file or directory and other users can only execute it. Suitable for directories where you don't want other people browsing through the contents but do want to give them access to selected files.
+700 means you can do anything with the file or directory and other users have no access to it at all. Suitable for private directories and programs.
+600 means you can read and write the file or directory and other users have no access to it. Suitable for private text files.
 #Keep Alive
 sudo mkdir -p /etc/vsftpd/
 sudo touch /etc/vsftpd/vsftpd.conf
