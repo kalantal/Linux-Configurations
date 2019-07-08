@@ -69,6 +69,12 @@ access_key=111111111111
 #sed -i "s/\r//g" credentials
 #sed -i "s/\r//g" cleanupKeys
 
+#whoami?
+if [ "$(whoami)" != 'root' ]
+  then echo "not root"
+  else echo "root"
+fi
+
 #RHEL Setup
 ifconfig
 ifdown ens33
