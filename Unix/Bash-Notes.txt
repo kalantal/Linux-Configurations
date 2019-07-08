@@ -82,6 +82,9 @@ ifup ens33
 
 yum groupinstall "Development tools" -y
 
+#Wait then run
+sleep 3600 && ./script.sh
+
 #Pip download only / install locally
 virtualenv/bin/pip download nose-blacklist -d dependencies/pip
 virtualenv/bin/pip install nose-blacklist --find-links dependencies/pip
