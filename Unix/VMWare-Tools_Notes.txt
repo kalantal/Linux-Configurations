@@ -16,3 +16,6 @@ cd vmware-tools-distrib
 
 #Resolution
 /usr/bin/vmware-user
+
+#Re-run configuration
+vmware-config-tools.pl
