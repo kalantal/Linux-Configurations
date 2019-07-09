@@ -1,0 +1,18 @@
+#VMWare Tools Installation
+
+#Check mountpoint:
+mount
+
+#If no-exist:
+mkdir /mnt/cdrom
+mount /dev/cdrom01 /mnt/cdrom
+
+#When mounted:
+cd /tmp
+tar zxpf /mnt/cdrom/VMwareTools-x.x.x-yyyy.tar.gz
+umount /dev/cdrom
+cd vmware-tools-distrib
+./vmware-install.pl
+
+#Resolution
+/usr/bin/vmware-user
