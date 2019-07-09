@@ -19,3 +19,7 @@ cd vmware-tools-distrib
 
 #Re-run configuration
 vmware-config-tools.pl
+
+#RHEL
+yum install 
+xorg-x11-drv-vmware
