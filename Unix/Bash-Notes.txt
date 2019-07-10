@@ -7,7 +7,7 @@ Gpass
 subscription-manager attach
 yum upgrade -y
 
-yum install git
+yum install git dos2unix
 
 git config --global user.name Justin
 git config --global user.email justinjrestivo@gmail.com
