@@ -1,0 +1,7 @@
+service networking restart
+ifconfig
+nmtui
+cat /etc/resolv.conf
+vi /etc/resolv.conf
+echo "nameserver 8.8.8.8" > /etc/resolv.conf 
+dhclient -v -r eth0
