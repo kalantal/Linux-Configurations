@@ -14,6 +14,8 @@ Whi='\[\e[0;37m\]'  # White
 
 #Kali-IP-fix
 LOCAL_IP=`/bin/hostname -I | sed 's/ //g'`
+#RHEL8
+LOCAL_IP=`hostname -I | awk '{print $1}'`
 #LOCAL_IP=`/bin/hostname --ip-address`
 #LOCAL_IP=`/bin/hostname -I`
 
