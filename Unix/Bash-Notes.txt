@@ -84,6 +84,16 @@ ifconfig
 ifdown ens33
 ifup ens33
 
+#Upgrade from lsit
+while read -r line; do sudo apt-get -y upgrade "$line"; done < list.txt
+
+list.txt
+
+e2fsprogs
+fern-wifi-cracker
+gedit
+gedit-common
+
 yum groupinstall "Development tools" -y
 
 #Wait then run
