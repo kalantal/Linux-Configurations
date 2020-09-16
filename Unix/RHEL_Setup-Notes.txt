@@ -10,13 +10,17 @@ G?
 subscription-manager attach
 yum upgrade -y
 
-yum install git
+yum install git wget
+
+yum -y install iscsi-initiator-utils
 
 cd /tmp
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ls *.rpm
-yum install epel-release-latest-7.noarch.rpm
+yum install -y epel-release-latest-7.noarch.rpm
 yum update
+
+yum install --downloadonly --downloaddir=./packages mysql-devel sqlite-devel python-devel iscsi-initiator-utils iscsi-initiator-utils python-pip mysql-devel sqlite-devel python-devel
 
 curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 unzip awscli-bundle.zip
@@ -45,3 +49,7 @@ cd libevent-1.4.14b-stable
 make
 sudo make install
 
+pip install --upgrade pip --find-links packages/pip
+
+mkdir packages/pip
+pip download pandas==0.20.3 -d packages/pip
