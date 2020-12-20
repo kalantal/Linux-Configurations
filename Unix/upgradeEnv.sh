@@ -33,8 +33,8 @@ update-gem() {
     if ! which gem &>/dev/null; then return; fi
 
     echo -e "\n${GREEN}Updating gems${CLEAR}"
-    gem update --user-install
-    gem cleanup --user-install
+    gem update
+    gem cleanup
 }
 
 
