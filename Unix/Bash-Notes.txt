@@ -7,6 +7,8 @@ ip addr
 sudo systemctl start sshd
 sudo systemctl status sshd
 
+yum install net-tools -y
+
 subscription-manager register
 jr09824
 Gpass
