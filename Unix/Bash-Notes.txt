@@ -1,5 +1,18 @@
 #RHEL Setup
 
+sudo dhclient -r
+sudo dhclient
+ip addr
+
+sudo systemctl start sshd
+sudo systemctl status sshd
+
+set virtualbox networking to bridged
+
+systemctl restart network
+
+yum install net-tools -y
+
 subscription-manager register
 jr09824
 Gpass
