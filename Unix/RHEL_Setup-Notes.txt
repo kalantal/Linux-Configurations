@@ -17,8 +17,9 @@ yum -y install iscsi-initiator-utils
 cd /tmp
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ls *.rpm
-yum install -y epel-release-latest-7.noarch.rpm
-yum update
+sudo yum install -y epel-release-latest-7.noarch.rpm
+sudo yum update
+rm epel-release-latest-7.noarch.rpm
 
 yum install --downloadonly --downloaddir=./packages mysql-devel sqlite-devel python-devel iscsi-initiator-utils iscsi-initiator-utils python-pip mysql-devel sqlite-devel python-devel
 
