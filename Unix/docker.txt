@@ -1,0 +1,44 @@
+sudo dhclient -r
+sudo dhclient
+
+
+
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+$ docker login registry.access.redhat.com
+Username: jr09824
+Password: G?
+
+$ docker pull registry.access.redhat.com/rhel7:latest
+
+sudo docker ps
+sudo docker run -d -t 9a3387c8f6bc /bin/bash
+sudo docker exec -it f77fb7e5c139 /bin/bas
+
+yum upgrade
+
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+yum install sudo git wget curl s3cmd python-pip python-virtualenv sudo -y
+
+groupadd docker
+
+interactive
+docker exec -u root -t -i container_id /bin/bash
+
+detetched
+docker exec -u root -t -d container_id /bin/bash
+
+
+useradd justin
+passwd justin
+usermod -aG wheel justin
+
+?
+docker image tag
+docker build -t rhel8 
+docker tag 12384u2j -t rhel8
