@@ -22,7 +22,12 @@ sudo docker exec -it f77fb7e5c139 /bin/bas
 
 yum upgrade
 
+rhel7
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+
+rhel8
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable "codeready-builder-for-rhel-8-$(arch)-rpms"
 yum install sudo git wget curl s3cmd python-pip virtualenv sudo -y
 
 groupadd docker
