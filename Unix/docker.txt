@@ -23,7 +23,7 @@ sudo docker exec -it f77fb7e5c139 /bin/bas
 yum upgrade
 
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
-yum install sudo git wget curl s3cmd python-pip python-virtualenv sudo -y
+yum install sudo git wget curl s3cmd python-pip virtualenv sudo -y
 
 groupadd docker
 
