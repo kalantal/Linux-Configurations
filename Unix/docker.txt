@@ -28,7 +28,7 @@ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.r
 rhel8
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable "codeready-builder-for-rhel-8-$(arch)-rpms"
-yum install git wget curl s3cmd python-pip virtualenv sudo -y
+yum install git wget curl s3cmd python3-pip virtualenv sudo -y
 
 groupadd docker
 
