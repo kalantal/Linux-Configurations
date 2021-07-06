@@ -10,16 +10,26 @@ G?
 subscription-manager attach
 yum upgrade -y
 
-yum install git wget
+sudo yum install git wget s3cmd
 
 yum -y install iscsi-initiator-utils
 
-cd /tmp
-wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-ls *.rpm
-sudo yum install -y epel-release-latest-7.noarch.rpm
-sudo yum update
-rm epel-release-latest-7.noarch.rpm
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+#cd /tmp
+#wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#ls *.rpm
+#sudo yum install -y epel-release-latest-7.noarch.rpm
+#sudo yum update
+#rm epel-release-latest-7.noarch.rpm
+
+sudo yum install s3cmd
+
+s3cmd --configure
+
+sudo /usr/sbin/useradd justin
+sudo /usr/bin/passwd justin
+sudo usermod -aG wheel justin
 
 yum install --downloadonly --downloaddir=./packages mysql-devel sqlite-devel python-devel iscsi-initiator-utils iscsi-initiator-utils python-pip mysql-devel sqlite-devel python-devel
 
@@ -36,6 +46,8 @@ pip install nose-blacklist --find-links dependencies/pip
 pip install --no-index --find-links="dependencies/pip/" -r requirements.txt
 
 pip download -r ../s3-tests/requirements.txt -d ./
+./virtualenv/bin/pip3 install --upgrade pip
+./virtualenv/bin/pip3 download -d ../ -r requirements.txt
 
 yum groupinstall "Development tools" -y
 yum install dependencies/rpms/*

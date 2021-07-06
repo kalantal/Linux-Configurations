@@ -1,0 +1,22 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+RCol='\[\e[0m\]'    # Text Reset
+Red='\[\e[0;31m\]'  # Red
+Gre='\[\e[0;32m\]'  # Green
+Yel='\[\e[0;33m\]'  # Yellow
+Blu='\[\e[0;34m\]'  # Blue
+Pur='\[\e[0;35m\]'  # Purple
+Cya='\[\e[0;36m\]'  # Cyan
+Whi='\[\e[0;37m\]'  # White
+
+PS
