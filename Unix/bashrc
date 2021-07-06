@@ -3,6 +3,10 @@
 #eval `ssh-agent -s`
 #ssh-add
 
+#refresh dhcp on boot
+#dhclient -r
+#dhclient
+
 RCol='\[\e[0m\]'    # Text Reset
 Red='\[\e[0;31m\]'  # Red
 Gre='\[\e[0;32m\]'  # Green
